@@ -151,6 +151,19 @@
             gap: 12px;
         }
 
+        .support-message {
+            text-align: center;
+            font-size: 15px;
+            line-height: 1.5;
+            color: #00f0ff;
+            background: rgba(0, 240, 255, 0.08);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 5px rgba(0, 240, 255, 0.4);
+        }
+
         .btn-coffee {
             display: inline-flex;
             align-items: center;
@@ -686,7 +699,7 @@
             <!-- LIENS EXTERNES (ACCUEIL) -->
             <div class="external-links">
                 <div class="section-title">Pour aller plus loin dans l'apprentissage</div>
-                <a href="https://www.amazon.fr/s?k=apprentissage+japonais&tag=cupgour-21" target="_blank" rel="nofollow sponsored" class="btn-amazon">
+                <a href="https://www.amazon.fr/s?k=apprentissage+japonais+kana+manuel&tag=TON_TAG_AMAZON-21" target="_blank" rel="nofollow sponsored" class="btn-amazon">
                     📚 Livres & Manuels conseillés sur Amazon
                 </a>
 
@@ -767,13 +780,15 @@
 
             <!-- LIENS EXTERNES (RÉSULTATS) -->
             <div class="external-links">
-                <div class="section-title">Pour aller plus loin dans l'apprentissage</div>
-                <a href="https://www.amazon.fr/s?k=apprentissage+japonais+kana+manuel&tag=TON_TAG_AMAZON-21" target="_blank" rel="nofollow sponsored" class="btn-amazon">
-                    📚 Recommandations de livres sur Amazon
-                </a>
+                <!-- MESSAGE DE SOUTIEN DYNAMIQUE -->
+                <div id="supportMessage" class="support-message"></div>
 
                 <a href="https://buymeacoffee.com/floky1313" target="_blank" class="btn-coffee">
-                    ☕ Vous aimez l'outil ? Offrez-moi un café !
+                    ☕ Soutenir le projet sur Buy Me a Coffee
+                </a>
+
+                <a href="https://www.amazon.fr/s?k=apprentissage+japonais+kana+manuel&tag=TON_TAG_AMAZON-21" target="_blank" rel="nofollow sponsored" class="btn-amazon">
+                    📚 Livres & Manuels pour aller plus loin sur Amazon
                 </a>
             </div>
         </div>
@@ -1190,6 +1205,15 @@
             document.getElementById('finalAccuracy').textContent = accuracy + '%';
             document.getElementById('finalSpeedText').textContent = `⚡ Temps moyen : ${avgSpeed}s par réponse`;
             document.getElementById('finalScoreText').textContent = `${stats.correct} bonnes réponses sur ${total}`;
+
+            // Génération du message personnalisé selon le nombre de kana réussis
+            const supportMessageElem = document.getElementById('supportMessage');
+            if (stats.correct > 0) {
+                const plural = stats.correct > 1 ? 's' : '';
+                supportMessageElem.innerHTML = `👏 Bravo, vous avez maîtrisé <strong>${stats.correct}</strong> kana${plural} !<br>Si ce quiz t'aide à apprendre le japonais, tu peux soutenir le projet avec le bouton ci-dessous :`;
+            } else {
+                supportMessageElem.innerHTML = `Ne découragez pas ! Continuez à vous entraîner.<br>Si cet outil vous aide dans votre apprentissage, vous pouvez soutenir le projet :`;
+            }
 
             if (accuracy >= 80) {
                 triggerConfetti();
