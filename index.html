@@ -143,10 +143,12 @@
             box-shadow: 0 0 30px rgba(255, 0, 127, 0.8);
         }
 
-        /* --- BOUTON BUY ME A COFFEE CYBERPUNK --- */
-        .btn-coffee-wrapper {
-            text-align: center;
-            margin-top: 20px;
+        /* --- LIENS ET BOUTONS EXTERNES --- */
+        .external-links {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .btn-coffee {
@@ -159,16 +161,40 @@
             background: linear-gradient(135deg, #ffdd00 0%, #f39c12 100%);
             color: #000;
             font-weight: bold;
-            font-size: 15px;
+            font-size: 14px;
             border-radius: 10px;
             text-decoration: none;
-            box-shadow: 0 0 15px rgba(255, 221, 0, 0.4);
+            box-shadow: 0 0 15px rgba(255, 221, 0, 0.3);
             transition: all 0.3s ease;
         }
 
         .btn-coffee:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(255, 221, 0, 0.8);
+            box-shadow: 0 0 25px rgba(255, 221, 0, 0.7);
+            filter: brightness(1.1);
+        }
+
+        .btn-amazon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #ff9900 0%, #ff6600 100%);
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            box-shadow: 0 0 15px rgba(255, 153, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-amazon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(255, 153, 0, 0.7);
             filter: brightness(1.1);
         }
 
@@ -657,8 +683,13 @@
 
             <button class="btn-start" onclick="startQuiz()">🚀 Commencer le Quiz</button>
 
-            <!-- BOUTON BUY ME A COFFEE (ACCUEIL) -->
-            <div class="btn-coffee-wrapper">
+            <!-- LIENS EXTERNES (ACCUEIL) -->
+            <div class="external-links">
+                <div class="section-title">Pour aller plus loin dans l'apprentissage</div>
+                <a href="https://www.amazon.fr/s?k=apprentissage+japonais+kana+manuel&tag=cupgour-21" target="_blank" rel="nofollow sponsored" class="btn-amazon">
+                    📚 Livres & Manuels conseillés sur Amazon
+                </a>
+
                 <a href="https://buymeacoffee.com/floky1313" target="_blank" class="btn-coffee">
                     ☕ M'offrir un café sur Buy Me a Coffee
                 </a>
@@ -734,8 +765,13 @@
                 <button class="btn-action btn-options" onclick="showScreen('setupScreen')">⚙️ Modifier les options</button>
             </div>
 
-            <!-- BOUTON BUY ME A COFFEE (RÉSULTATS) -->
-            <div class="btn-coffee-wrapper">
+            <!-- LIENS EXTERNES (RÉSULTATS) -->
+            <div class="external-links">
+                <div class="section-title">Pour aller plus loin dans l'apprentissage</div>
+                <a href="https://www.amazon.fr/s?k=apprentissage+japonais+kana+manuel&tag=TON_TAG_AMAZON-21" target="_blank" rel="nofollow sponsored" class="btn-amazon">
+                    📚 Recommandations de livres sur Amazon
+                </a>
+
                 <a href="https://buymeacoffee.com/floky1313" target="_blank" class="btn-coffee">
                     ☕ Vous aimez l'outil ? Offrez-moi un café !
                 </a>
